@@ -12,7 +12,7 @@ My main goal with this project was to build an audio analyzer project with cheap
 
 The biggest challenge I had with this project is fitting all the code into program memory.  The audio analysis libraries, graphics libraries, and OLED LCD libraries are too big to fit on a typical Arduino together. I had to write my own OLED LCD drawing methods from scratch since I didn't need text support on the display anyway. Figuring out the correct byte arrays to write to the display based on audio amplitude was key. I modified the [Didel OLED library](https://www.didel.com/OledLib.pdf) to draw the amplitude lines with minimal overhead.
 
-![Spectra Amplitude Visualizer In-Progress Comparison](/images/spectra_amplitude_in_progress)
+![Spectra Amplitude Visualizer In-Progress Comparison](/images/spectra_amplitude_in_progress.jpg)
 
 ## How it works
 This is an [Adafruit Pro Trinket](https://www.adafruit.com/product/2000) (5V) based project. The Pro Trinket is great because it's cheap but still offers an analog reference pin to tie line-level audio into. It's 16MHz and fast enough to analyze 16 bands of FFT audio, but it has no serial to USB chip, so I recommend breadboarding this project out on an Arduino Uno. You can use the serial output for debugging, and then transfer everything to the Pro Trinket. Or you could use something like the [Adafruit Metro Mini](https://www.adafruit.com/product/2590) for a similar cost.
